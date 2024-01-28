@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Lightmaps/torch.gd" type="Script" id=1]
+
+[node name="torch" type="Light2D"]
+shadow_enabled = true
+script = ExtResource( 1 )
