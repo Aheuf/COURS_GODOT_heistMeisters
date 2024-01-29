@@ -4,7 +4,6 @@ var motion = Vector2()
 
 func _physics_process(delta):
 	update_movement()
-	actions()
 	move_and_slide(motion)
 
 
@@ -19,14 +18,10 @@ func update_movement():
 	else:
 		motion.y = lerp(motion.y, 0, FRICTION)
 
-	# HORISONTAL MOVEMENT
+	# HORIZONTAL MOVEMENT
 	if Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left"):
 		motion.x = clamp(motion.x + SPEED, 0, MAX_SPEED)
 	elif Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
 		motion.x = clamp(motion.x - SPEED, -MAX_SPEED, 0)
 	else:
 		motion.x = lerp(motion.x, 0, FRICTION)
-
-func actions():
-	if Input.is_action_just_pressed("light_switch"):
-		$torch.switch_light()
